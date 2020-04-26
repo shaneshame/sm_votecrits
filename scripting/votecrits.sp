@@ -38,20 +38,6 @@ char g_voteInfo[3][65];		/* Holds the target's name, authid, and IP */
 
 TopMenu hTopMenu;
 
-char GetVoteCritsTitle()
-{
-  char title[32];
-
-  if (g_Cvar_RandomCrits.BoolValue)
-  {
-    title = "VoteRandomCrits Off";
-  } else {
-    title = "VoteRandomCrits On";
-  }
-
-  return title;
-}
-
 void DisplayVoteCritsMenu(int client)
 {
   if (IsVoteInProgress())
@@ -70,7 +56,10 @@ void DisplayVoteCritsMenu(int client)
 
   g_hVoteMenu = new Menu(Handler_VoteCallback, MENU_ACTIONS_ALL);
   
-  g_hVoteMenu.SetTitle(GetVoteCritsTitle());
+  g_hVoteMenu.SetTitle(g_Cvar_RandomCrits.BoolValue
+    ? "VoteRandomCrits Off"
+    : "VoteRandomCrits On"
+  );
   g_hVoteMenu.AddItem(VOTE_YES, "Yes");
   g_hVoteMenu.AddItem(VOTE_NO, "No");
   g_hVoteMenu.ExitButton = false;
