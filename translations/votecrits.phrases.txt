@@ -1,24 +1,24 @@
 "Phrases"
 {
-  "Initiated Vote Randomcrits"
+  "phrases.votecrits.activity_message"
 	{
-		"en" "Initiated a randomcrits vote."
+		"en" "Initiated vote to enable/disable fair and balanced crits."
 	}
 
-  "VoteRandomCrits Off"
+  "phrases.votecrits.prompt_vote_off"
 	{
 		"#format" "{1:s}"
-		"en" "Turn randomcrits off? {1}"
+		"en" "Random crits off? {1}"
 	}
 	
-	"VoteRandomCrits On"
+	"phrases.votecrits.prompt_vote_on"
 	{
 		"#format" "{1:s}"
-		"en" "Turn randomcrits on? {1}"
+		"en" "Random crits on? {1}"
 	}
 
-  "Randomcrits vote"
+  "phrases.votecrits.admin_menu_name"
 	{
-		"en" "Randomcrits vote"
+		"en" "Crits fairbalanced"
 	}
 }
