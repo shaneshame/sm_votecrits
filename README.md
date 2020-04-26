@@ -1,5 +1,7 @@
 # sm_votecrits
 
+SourceMod plugin to allow admins to start votes to enable/disable random crits in TF2.
+
 ### Console
 
 ```go
@@ -24,3 +26,7 @@ sm_votecrits
 // Maximum: "1.000000"
 sm_vote_crits "0.60"
 ```
+
+## Credit
+
+I used the `basevotes` and `funvotes` as references.
