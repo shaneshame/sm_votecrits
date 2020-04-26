@@ -52,13 +52,13 @@ void DisplayVoteCritsMenu(int client)
   }
   
   LogAction(client, -1, "\"%L\" initiated a randomcrits vote.", client);
-  ShowActivity2(client, "[SM] ", "%t", "Initiated Vote Randomcrits");
+  ShowActivity2(client, "[SM] ", "%t", "phrases.votecrits.activity_message");
 
   g_hVoteMenu = new Menu(Handler_VoteCallback, MENU_ACTIONS_ALL);
   
   g_hVoteMenu.SetTitle(g_Cvar_RandomCrits.BoolValue
-    ? "VoteRandomCrits Off"
-    : "VoteRandomCrits On"
+    ? "phrases.votecrits.prompt_vote_off"
+    : "phrases.votecrits.prompt_vote_on"
   );
   g_hVoteMenu.AddItem(VOTE_YES, "Yes");
   g_hVoteMenu.AddItem(VOTE_NO, "No");
@@ -76,7 +76,7 @@ public void AdminMenu_VoteCrits(
 ) {
   if (action == TopMenuAction_DisplayOption)
   {
-    Format(buffer, maxlength, "%T", "Randomcrits vote", param);
+    Format(buffer, maxlength, "%T", "phrases.votecrits.admin_menu_name", param);
   }
   else if (action == TopMenuAction_SelectOption)
   {
@@ -170,8 +170,8 @@ public int Handler_VoteCallback(Menu menu, MenuAction action, int param1, int pa
     char display[64];
     menu.GetItem(param2, "", 0, _, display, sizeof(display));
    
-     if (strcmp(display, VOTE_NO) == 0 || strcmp(display, VOTE_YES) == 0)
-     {
+    if (strcmp(display, VOTE_NO) == 0 || strcmp(display, VOTE_YES) == 0)
+    {
       char buffer[255];
       Format(buffer, sizeof(buffer), "%T", display, param1);
 
@@ -193,7 +193,7 @@ public int Handler_VoteCallback(Menu menu, MenuAction action, int param1, int pa
     
     if (strcmp(item, VOTE_NO) == 0 && param1 == 1)
     {
-      votes = totalVotes - votes; // Reverse the votes to be in relation to the Yes option.
+      votes = totalVotes - votes; // Normalize vote count to be in relation to the VOTE_YES option.
     }
     
     percent = GetVotePercent(votes, totalVotes);
@@ -232,21 +232,21 @@ float GetVotePercent(int votes, int totalVotes)
 
 bool TestVoteDelay(int client)
 {
-   int delay = CheckVoteDelay();
+  int delay = CheckVoteDelay();
    
-   if (delay > 0)
-   {
-     if (delay > 60)
-     {
-       ReplyToCommand(client, "[SM] %t", "Vote Delay Minutes", (delay / 60));
-     }
-     else
-     {
-       ReplyToCommand(client, "[SM] %t", "Vote Delay Seconds", delay);
-     }
-     
-     return false;
-   }
+  if (delay > 0)
+  {
+    if (delay > 60)
+    {
+      ReplyToCommand(client, "[SM] %t", "Vote Delay Minutes", (delay / 60));
+    }
+    else
+    {
+      ReplyToCommand(client, "[SM] %t", "Vote Delay Seconds", delay);
+    }
+    
+    return false;
+  }
    
   return true;
 }
