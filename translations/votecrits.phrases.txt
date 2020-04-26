@@ -1,0 +1,24 @@
+"Phrases"
+{
+  "Initiated Vote Randomcrits"
+	{
+		"en" "Initiated a randomcrits vote."
+	}
+
+  "VoteRandomCrits Off"
+	{
+		"#format" "{1:s}"
+		"en" "Turn randomcrits off? {1}"
+	}
+	
+	"VoteRandomCrits On"
+	{
+		"#format" "{1:s}"
+		"en" "Turn randomcrits on? {1}"
+	}
+
+  "Randomcrits vote"
+	{
+		"en" "Randomcrits vote"
+	}
+}
