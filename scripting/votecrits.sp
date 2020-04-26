@@ -62,7 +62,7 @@ void DisplayVoteCritsMenu(int client)
   );
   g_hVoteMenu.AddItem(VOTE_YES, "Yes");
   g_hVoteMenu.AddItem(VOTE_NO, "No");
-  g_hVoteMenu.ExitButton = false;
+  g_hVoteMenu.ExitButton = true;
   g_hVoteMenu.DisplayVoteToAll(20);
 }
 
